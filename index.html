@@ -21,7 +21,7 @@
   <!-- Favicons (place files in /assets) -->
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
-  <!-- <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"> -->
+  <!--<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"> -->
   <link rel="manifest" href="/assets/site.webmanifest">
 
   <style>
@@ -177,7 +177,7 @@
       min-width: 0;
     }
     .brandText strong{
-      /* font-size: 16px; */
+      font-size: 16px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -243,6 +243,23 @@
       border-radius: 14px;
       font-size: 16px;
     }
+	
+	
+/* Generic hover for normal buttons/icons only */
+.btn:hover, .iconBtn:hover{
+  transform: translateY(-1px);
+  background: var(--panel2);
+  border-color: color-mix(in srgb, var(--line) 70%, var(--brand) 30%);
+}
+
+/* CTA has its own hover (stays vibrant + readable) */
+.cta:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: var(--brandText);
+}
+
 
     /* =========================
        HERO
@@ -273,6 +290,8 @@
       background: #34d399;
       box-shadow: 0 0 0 6px rgba(52,211,153,.12);
     }
+	
+	
     h1{
       margin: var(--space-4) 0 var(--space-2);
       font-size: clamp(30px, 4.4vw, 48px);
@@ -433,9 +452,9 @@
     /* =========================
        RESPONSIVE
        ========================= */
-
+	   
 	
-/* MOBILE FIX: allow wrapping and show full name */
+	   /* MOBILE FIX: allow wrapping and show full name */
 @media (max-width: 520px) {
   .brandText strong {
     white-space: normal;      /* allow wrap */
@@ -448,7 +467,7 @@
     max-width: 15ch;          /* prevents taking whole nav */
   }
 
-  .brandText span {
+  .brandText {
     display: none;            /* hide "CAREER INSTITUTE" on very small screens */
   }
 
@@ -456,8 +475,8 @@
     width: 40px;
     height: 40px;
   }
-}
-
+  }
+  
     @media (min-width: 760px){
       .links{ display:flex; }
       .heroGrid{
@@ -541,18 +560,34 @@
           <div>
             <div class="badge"><span class="dot" aria-hidden="true"></span> Sector 15, Panchkula • Foundation • Boards • IIT‑JEE • MEDICAL</div>
 
-            <h1>Build strong fundamentals. Score better in Boards. Prepare confidently for IIT‑JEE & MEDICAL.</h1>
+				
+				<h1 class="heroTitle">Sukrit Career Institute</h1>
 
-            <p class="lead">
-              Sukrit Career Institute supports students from <strong>Class 9 to 12</strong> with concept clarity,
-              regular tests, and dedicated doubt sessions — aligned for <strong>Boards + Competitive exams</strong>.
-            </p>
+				<h2 class="">
+				  Build strong fundamentals.<br>
+				  Excel in Boards.<br>
+				  Prepare confidently for IIT‑JEE &amp; NEET.
+				</h2>
+				
+
+				<p class="heroSubtitle">
+				  Foundation (Class 9–10) • Boards (Class 11–12) • IIT‑JEE • NEET
+				</p>
+
+				<p class="lead">
+				  <strong>Sukrit Career Institute</strong> prepares students from <strong>Class 9 to 12</strong> with a
+				  concept‑first approach, structured practice, regular assessments, and focused doubt‑solving, 
+				  helping them succeed in <strong>school boards and competitive exams</strong> with confidence.
+				</p>
+
 
             <div class="actions">
-              <a class="btn" href="#contact">Request a Callback</a>
+              <a class="cta" href="#contact">Book Free Counseling <span aria-hidden="true">→</span></a>
               <a class="btn" href="#courses">Explore Courses</a>
               <a class="btn" href="tel:+917340710309">Call: 7340710309</a>
               <a class="btn" href="tel:+919041452013">Call: 9041452013</a>
+			  <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
+
             </div>
 
             <p class="note">✅ Limited seats • ✅ Weekly assessments • ✅ Focused mentoring</p>
@@ -592,13 +627,13 @@
             </ul>
 
             <div class="qiActions">
-              <a class="btn" href="#contact">Book Counseling</a>
+              <a class="btn" href="#contact">Request a Callback</a>
               <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open in Maps</a>
               <a class="btn" href="mailto:info@sukritcareerinstitute.in">Email Us</a>
               <a class="btn" href="https://wa.me/917340710309" target="_blank" rel="noopener">WhatsApp</a>
             </div>
 
-            <p class="note">Tip: Add a Google Business Profile for better local visibility.</p>
+            <p class="note"></p>
           </aside>
 
         </div>
@@ -608,6 +643,7 @@
     <section id="courses">
       <div class="container">
         <h2 class="title">Courses & Preparation</h2>
+
         <p class="sub">Structured programs designed for strong fundamentals and exam success.</p>
 
         <div class="cardsGrid">
@@ -653,6 +689,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <h2 class="title">Contact & Admissions</h2>
@@ -681,5 +718,77 @@
                   <option>Foundation (Class 9–10)</option>
                   <option>Boards (Class 11–12)</option>
                   <option>IIT‑JEE</option>
-				  <option>MEDICAL</option>
+                  <option>NEET</option>
+                </select>
+              </div>
 
+              <div>
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" placeholder="Tell us class, board, and goals..."></textarea>
+              </div>
+
+              <button class="cta" type="submit">Submit <span aria-hidden="true">→</span></button>
+              <p class="note">We will contact you for admission guidance. No spam.</p>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h3 style="margin-top:0;">Visit Us</h3>
+            <p class="sub" style="margin-bottom:0;">
+              <strong>Address:</strong> SCF-8, First-Floor, Sector 15, Panchkula, Haryana 134113<br/>
+              <strong>Phone:</strong> <a href="tel:+917340710309">+91 7340710309</a>, <a href="tel:+919041452013">+91 9041452013</a><br/>
+              <strong>Email:</strong> <a href="mailto:info@sukritcareerinstitute.in">info@sukritcareerinstitute.in</a><br/>
+              <strong>Map:</strong> <a href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open Location</a>
+            </p>
+
+            <div class="heroActions" style="margin-top:var(--space-4);">
+              <a class="btn" href="https://wa.me/917340710309" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
+            </div>
+
+            <p class="note" style="margin-top:var(--space-4);">
+              For quick queries, WhatsApp us on the same number.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="yr"></span> Sukrit Career Institute. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    // Theme toggle (dark/light) with persistence
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+
+    function setTheme(mode){
+      root.setAttribute("data-theme", mode);
+      localStorage.setItem("theme", mode);
+      btn.textContent = (mode === "dark") ? "🌙" : "☀️";
+      btn.setAttribute("aria-label", mode === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      btn.title = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    }
+
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") {
+      setTheme(saved);
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>
