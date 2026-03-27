@@ -21,7 +21,7 @@
   <!-- Favicons (place files in /assets) -->
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"> -->
   <link rel="manifest" href="/assets/site.webmanifest">
 
   <style>
@@ -177,7 +177,7 @@
       min-width: 0;
     }
     .brandText strong{
-      font-size: 16px;
+      /* font-size: 16px; */
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -433,6 +433,31 @@
     /* =========================
        RESPONSIVE
        ========================= */
+
+	
+/* MOBILE FIX: allow wrapping and show full name */
+@media (max-width: 520px) {
+  .brandText strong {
+    white-space: normal;      /* allow wrap */
+    overflow: visible;
+    text-overflow: clip;
+    display: -webkit-box;     /* clamp to 2 lines */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.1;
+    max-width: 15ch;          /* prevents taking whole nav */
+  }
+
+  .brandText span {
+    display: none;            /* hide "CAREER INSTITUTE" on very small screens */
+  }
+
+  .logoImg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
     @media (min-width: 760px){
       .links{ display:flex; }
       .heroGrid{
