@@ -12,3 +12,8 @@ tagline: "Foundation (9th–10th), Boards (11th–12th), IIT-JEE & Medical (NEET
 description: "Sukrit Career Institute in Panchkula (Sector 15, Haryana) offers coaching for Foundation (Class 9–10), Board exams (Class 11–12), IIT-JEE and Medical (NEET)."
 
 
+# If your site is hosted at: https://<username>.github.io/<repo-name>/
+# Keep url as GitHub domain and baseurl as /<repo-name>
+# If you connect a custom domain (e.g., https://sukritcareerinstitute.in), set:
+url: "https://sukritcareerinstitute.in"
+baseurl: ""
