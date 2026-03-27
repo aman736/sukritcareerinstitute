@@ -6,62 +6,9 @@
 # Sukrit Career Institute
 # GitHub Pages / Jekyll config
 # =========================
-
+theme: jekyll-theme-minimal
 title: "Sukrit Career Institute"
 tagline: "Foundation (9th–10th), Boards (11th–12th), IIT-JEE & Medical (NEET) Coaching"
 description: "Sukrit Career Institute in Panchkula (Sector 15, Haryana) offers coaching for Foundation (Class 9–10), Board exams (Class 11–12), IIT-JEE and Medical (NEET)."
 
-# If your site is hosted at: https://<username>.github.io/<repo-name>/
-# Keep url as GitHub domain and baseurl as /<repo-name>
-# If you connect a custom domain (e.g., https://sukritcareerinstitute.in), set:
-url: "https://sukritcareerinstitute.in"
-#   baseurl: ""
-#url: "https://<username>.github.io"
-#baseurl: "/<repo-name>"
 
-# Basic contact/location info (use in templates if needed)
-institute:
-  name: "Sukrit Career Institute"
-  address_line: "Sector-15"
-  city: "Panchkula"
-  state: "Haryana"
-  country: "India"
-
-# GitHub Pages supported theme (choose one)
-# Common options: minima, cayman, slate, modernist, minimal, jekyll-theme-primer
-theme: minima
-
-# Plugins supported by GitHub Pages (safe set)
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
-# Markdown + permalinks
-markdown: kramdown
-permalink: pretty
-
-# Build settings
-exclude:
-  - README.md
-  - node_modules
-  - vendor
-  - Gemfile
-  - Gemfile.lock
-
-# Optional: show future posts? keep false
-future: false
-
-# Optional: Defaults
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: default
-
-# Optional SEO metadata (used by jekyll-seo-tag)
-author:
-  name: "Sukrit Career Institute"
-social:
-  name: "Sukrit Career Institute"
-  links: []
