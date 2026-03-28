@@ -1,17 +1,794 @@
-
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en" data-theme="">
 <head>
   <meta charset="utf-8" />
-  <title>Sukrit Career Institute</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Primary SEO -->
+  <title>Sukrit Career Institute | Foundation (9–10), Boards (11–12), IIT-JEE & MEDICAL Coaching in Panchkula</title>
+  <meta name="description" content="Sukrit Career Institute, Sector 15 Panchkula (Haryana) – Coaching for Class 9–10 Foundation, Class 11–12 Boards, IIT-JEE and MEDICAL. Concept clarity, regular tests, doubt sessions, and mentoring." />
+  <link rel="canonical" href="https://sukritcareerinstitute.in/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sukrit Career Institute | Coaching in Panchkula (Sector 15)" />
+  <meta property="og:description" content="Foundation (9–10), Boards (11–12), IIT-JEE & MEDICAL coaching in Panchkula. Book a free counseling call." />
+  <meta property="og:url" content="https://sukritcareerinstitute.in/" />
+  <!-- Optional (add after you upload): <meta property="og:image" content="https://sukritcareerinstitute.in/assets/og-cover.jpg" /> -->
+
+  <!-- Favicons (place files in /assets) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <!--<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"> -->
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <style>
+    /* =========================
+       THEME TOKENS (Light + Dark)
+       ========================= */
+    :root{
+      --space-1: 6px;
+      --space-2: 10px;
+      --space-3: 14px;
+      --space-4: 18px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 44px;
+
+      --radius: 18px;
+      --radius-lg: 26px;
+      --max: 1120px;
+
+      --shadow-soft: 0 10px 26px rgba(0,0,0,.14);
+      --shadow: 0 16px 44px rgba(0,0,0,.18);
+
+      /* default = dark */
+      --bg: #0b1220;
+      --bg2: rgba(255,255,255,.04);
+      --panel: rgba(255,255,255,.07);
+      --panel2: rgba(255,255,255,.10);
+      --line: rgba(255,255,255,.14);
+
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+      --muted2: rgba(255,255,255,.60);
+
+      --brand: #5eead4;
+      --brand2: #60a5fa;
+      --brandText: #07101f;
+
+      color-scheme: dark;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f8fb;
+        --bg2: rgba(10,15,30,.04);
+        --panel: rgba(10,15,30,.04);
+        --panel2: rgba(10,15,30,.06);
+        --line: rgba(10,15,30,.12);
+
+        --text: rgba(10,15,30,.92);
+        --muted: rgba(10,15,30,.70);
+        --muted2: rgba(10,15,30,.56);
+
+        --shadow-soft: 0 10px 26px rgba(10,15,30,.10);
+        --shadow: 0 16px 44px rgba(10,15,30,.12);
+
+        color-scheme: light;
+      }
+    }
+
+    html[data-theme="dark"]{
+      --bg: #0b1220;
+      --bg2: rgba(255,255,255,.04);
+      --panel: rgba(255,255,255,.07);
+      --panel2: rgba(255,255,255,.10);
+      --line: rgba(255,255,255,.14);
+
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+      --muted2: rgba(255,255,255,.60);
+
+      --shadow-soft: 0 10px 26px rgba(0,0,0,.22);
+      --shadow: 0 16px 44px rgba(0,0,0,.30);
+
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"]{
+      --bg: #f7f8fb;
+      --bg2: rgba(10,15,30,.04);
+      --panel: rgba(10,15,30,.04);
+      --panel2: rgba(10,15,30,.06);
+      --line: rgba(10,15,30,.12);
+
+      --text: rgba(10,15,30,.92);
+      --muted: rgba(10,15,30,.70);
+      --muted2: rgba(10,15,30,.56);
+
+      --shadow-soft: 0 10px 26px rgba(10,15,30,.10);
+      --shadow: 0 16px 44px rgba(10,15,30,.12);
+
+      color-scheme: light;
+    }
+
+    /* =========================
+       BASE
+       ========================= */
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.55;
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(94,234,212,.14), transparent 55%),
+        var(--bg);
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    /* =========================
+       NAV
+       ========================= */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 0;
+      gap: var(--space-3);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      min-width: 0;
+    }
+
+    /* Logo Image */
+    .logoImg{
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 12px;
+      flex: 0 0 auto;
+      background: transparent;
+    }
+    .brandText{
+      display:flex;
+      flex-direction: column;
+      line-height: 1.05;
+      min-width: 0;
+    }
+    .brandText strong{
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brandText span{
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .links{
+      display:none;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .links a:hover{ color: var(--text); }
+
+    .navRight{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .btn, .cta, .iconBtn{
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    .btn:hover, .cta:hover, .iconBtn:hover{
+      transform: translateY(-1px);
+      background: var(--panel2);
+      border-color: color-mix(in srgb, var(--line) 70%, var(--brand) 30%);
+    }
+    .btn:active, .cta:active, .iconBtn:active{ transform: translateY(0); }
+
+    .cta{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: var(--brandText);
+      border: none;
+    }
+    .iconBtn{
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 14px;
+      font-size: 16px;
+    }
+	
+	
+/* Generic hover for normal buttons/icons only */
+.btn:hover, .iconBtn:hover{
+  transform: translateY(-1px);
+  background: var(--panel2);
+  border-color: color-mix(in srgb, var(--line) 70%, var(--brand) 30%);
+}
+
+/* CTA has its own hover (stays vibrant + readable) */
+.cta:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: var(--brandText);
+}
+
+
+    /* =========================
+       HERO
+       ========================= */
+    .hero{ padding: var(--space-7) 0 var(--space-5); }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      align-items: start;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      width: fit-content;
+    }
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #34d399;
+      box-shadow: 0 0 0 6px rgba(52,211,153,.12);
+    }
+	
+	
+    h1{
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: clamp(30px, 4.4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.4px;
+    }
+    .lead{
+      margin: 0 0 var(--space-4);
+      color: var(--muted);
+      max-width: 64ch;
+      font-size: 16px;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    .note{
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top: var(--space-3);
+    }
+
+    /* =========================
+       CARD SYSTEM & GRIDS
+       ========================= */
+    .card{
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      padding: var(--space-5);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .cardLift{
+      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+    }
+    .cardLift:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: color-mix(in srgb, var(--line) 65%, var(--brand) 35%);
+    }
+
+    section{ padding: var(--space-7) 0; }
+    .title{
+      margin:0 0 var(--space-2);
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+    .sub{
+      margin:0 0 var(--space-5);
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .cardsGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    /* =========================
+       QUICK INFO PANEL
+       ========================= */
+    .quickInfo{
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
+      padding: var(--space-5);
+    }
+    .qiHeader{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .qiHeader h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .qiPill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .qiList{
+      list-style:none;
+      padding:0;
+      margin:0 0 var(--space-4);
+      display:grid;
+      gap: var(--space-3);
+    }
+    .qiItem{
+      display:grid;
+      grid-template-columns: 34px 1fr;
+      gap: var(--space-3);
+      padding: 12px 12px;
+      border-radius: var(--radius);
+      background: var(--bg2);
+      border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    }
+    .qiIcon{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      background: color-mix(in srgb, var(--brand) 14%, transparent);
+      border: 1px solid color-mix(in srgb, var(--brand) 26%, transparent);
+      font-weight: 900;
+    }
+    .qiItem strong{
+      display:block;
+      font-size: 13px;
+      color: var(--muted2);
+      margin-bottom: 2px;
+    }
+    .qiItem span{
+      display:block;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .qiActions{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    /* =========================
+       CONTACT FORM
+       ========================= */
+    form{ display:grid; gap: var(--space-3); }
+    label{ font-size: 13px; color: var(--muted); font-weight: 900; }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    footer{
+      padding: var(--space-6) 0 var(--space-7);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+	   
+	
+	   /* MOBILE FIX: allow wrapping and show full name */
+@media (max-width: 520px) {
+  .brandText strong {
+    white-space: normal;      /* allow wrap */
+    overflow: visible;
+    text-overflow: clip;
+    display: -webkit-box;     /* clamp to 2 lines */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.1;
+    max-width: 15ch;          /* prevents taking whole nav */
+  }
+
+  .brandText {
+    display: none;            /* hide "CAREER INSTITUTE" on very small screens */
+  }
+
+  .logoImg {
+    width: 40px;
+    height: 40px;
+  }
+  }
+  
+    @media (min-width: 760px){
+      .links{ display:flex; }
+      .heroGrid{
+        grid-template-columns: 1.12fr .88fr;
+        gap: var(--space-6);
+      }
+      .cardsGrid{ grid-template-columns: repeat(3, 1fr); }
+      .qiActions{ grid-template-columns: 1fr 1fr; }
+
+      /* Sticky only on desktop */
+      .quickInfo{
+        position: sticky;
+        top: 84px;
+      }
+    }
+
+    :focus-visible{
+      outline: 3px solid color-mix(in srgb, var(--brand) 65%, transparent);
+      outline-offset: 2px;
+      border-radius: 14px;
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"EducationalOrganization",
+    "name":"Sukrit Career Institute",
+    "url":"https://sukritcareerinstitute.in/",
+    "description":"Coaching for Foundation (Class 9–10), Boards (Class 11–12), IIT-JEE and MEDICAL in Panchkula (Sector 15, Haryana).",
+    "telephone":[
+      "+91-7340710309",
+      "+91-9041452013"
+    ],
+    "email":"info@sukritcareerinstitute.in",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"SCF-8, First-Floor, Sector 15",
+      "addressLocality":"Panchkula",
+      "addressRegion":"Haryana",
+      "postalCode":"134113",
+      "addressCountry":"IN"
+    }
+  }
+  </script>
 </head>
 
 <body>
-  <h1>Welcome to Sukrit Career Institute</h1>
-  <p>Preparing students for a better future.</p>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#top" class="brand" aria-label="Sukrit Career Institute">
+          <img src="/assets/logo.png" alt="Sukrit Career Institute logo" class="logoImg" />
+          <div class="brandText">
+            <strong>Sukrit Career Institute</strong>
+            <span>Career Institute</span>
+          </div>
+        </a>
 
-  <h2>Contact Us</h2>
-  <p>Email: info@sukritcareerinstitute.in</p>
+        <div class="links" aria-label="Sections">
+          <a href="#courses">Courses</a>
+          <a href="#why">Why Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="navRight">
+          <button class="iconBtn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle light/dark">🌙</button>
+          <a class="cta" href="#contact">Book Free Counseling →</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="heroGrid">
+
+          <!-- Left -->
+          <div>
+            <div class="badge"><span class="dot" aria-hidden="true"></span> Sector 15, Panchkula • Foundation • Boards • IIT‑JEE • MEDICAL</div>
+
+				
+				<h1 class="heroTitle">Sukrit Career Institute</h1>
+
+				<h2 class="">
+				  Build strong fundamentals.<br>
+				  Excel in Boards.<br>
+				  Prepare confidently for IIT‑JEE &amp; MEDICAL
+				</h2>
+				
+
+				<p class="heroSubtitle">
+				  Foundation (Class 9–10) • Boards (Class 11–12) • IIT‑JEE • MEDICAL
+				</p>
+
+				<p class="lead">
+				  <strong>Sukrit Career Institute</strong> prepares students from <strong>Class 9 to 12</strong> with a
+				  concept‑first approach, structured practice, regular assessments, and focused doubt‑solving, 
+				  helping them succeed in <strong>school boards and competitive exams</strong> with confidence.
+				</p>
+
+
+            <div class="actions">
+              <a class="cta" href="#contact">Book Free Counseling <span aria-hidden="true">→</span></a>
+              <a class="btn" href="#courses">Explore Courses</a>
+              <a class="btn" href="tel:+917340710309">Call: 7340710309</a>
+              <a class="btn" href="tel:+919041452013">Call: 9041452013</a>
+			  <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
+
+            </div>
+
+            <p class="note">✅ Limited seats • ✅ Weekly assessments • ✅ Focused mentoring</p>
+          </div>
+
+          <!-- Right: Quick Info -->
+          <aside class="quickInfo" aria-label="Quick Info">
+            <div class="qiHeader">
+              <h2>Quick Info</h2>
+              <span class="qiPill">Admissions Open</span>
+            </div>
+
+            <ul class="qiList">
+              <li class="qiItem">
+                <div class="qiIcon" aria-hidden="true">📍</div>
+                <div>
+                  <strong>Address</strong>
+                  <span>SCF-8, First-Floor, Sector 15, Panchkula, Haryana 134113</span>
+                </div>
+              </li>
+
+              <li class="qiItem">
+                <div class="qiIcon" aria-hidden="true">🎓</div>
+                <div>
+                  <strong>Programs</strong>
+                  <span>9–10 Foundation • 11–12 Boards • IIT‑JEE • MEDICAL</span>
+                </div>
+              </li>
+
+              <li class="qiItem">
+                <div class="qiIcon" aria-hidden="true">📞</div>
+                <div>
+                  <strong>Contact</strong>
+                  <span>+91 7340710309 • +91 9041452013</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="qiActions">
+              <a class="btn" href="#contact">Request a Callback</a>
+              <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open in Maps</a>
+              <a class="btn" href="mailto:info@sukritcareerinstitute.in">Email Us</a>
+              <a class="btn" href="https://wa.me/917340710309" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+
+            <p class="note"></p>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <h2 class="title">Courses & Preparation</h2>
+
+        <p class="sub">Structured programs designed for strong fundamentals and exam success.</p>
+
+        <div class="cardsGrid">
+          <article class="card cardLift">
+            <h3>Foundation (Class 9–10)</h3>
+            <p class="sub" style="margin:0;">Concept clarity, disciplined practice, and a strong base for boards + entrance preparation.</p>
+          </article>
+
+          <article class="card cardLift">
+            <h3>Boards (Class 11–12)</h3>
+            <p class="sub" style="margin:0;">Board-aligned syllabus coverage with revision strategy, tests, and performance tracking.</p>
+          </article>
+
+          <article class="card cardLift">
+            <h3>IIT‑JEE & MEDICAL</h3>
+            <p class="sub" style="margin:0;">Advanced problem-solving, mock tests, and exam strategy to improve speed & accuracy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <h2 class="title">Why Sukrit Career Institute</h2>
+        <p class="sub">A student-friendly approach focused on clarity, consistency, and measurable improvement.</p>
+
+        <div class="cardsGrid">
+          <article class="card cardLift">
+            <h3>Concept‑First Learning</h3>
+            <p class="sub" style="margin:0;">We ensure fundamentals are strong before moving to advanced questions.</p>
+          </article>
+
+          <article class="card cardLift">
+            <h3>Regular Tests & Feedback</h3>
+            <p class="sub" style="margin:0;">Frequent assessments with analysis to identify gaps early.</p>
+          </article>
+
+          <article class="card cardLift">
+            <h3>Doubt Support & Mentoring</h3>
+            <p class="sub" style="margin:0;">Dedicated doubt sessions and guidance to keep students on track.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="title">Contact & Admissions</h2>
+        <p class="sub">Fill the form and we’ll guide you on course selection, batch timings, and admission process.</p>
+
+        <div class="heroGrid">
+          <div class="card">
+            <h3 style="margin-top:0;">Request a Callback</h3>
+
+            <!-- IMPORTANT: Replace action URL with your Formspree endpoint -->
+            <form action="https://formspree.io/f/REPLACE_ME" method="POST">
+              <div>
+                <label for="name">Student Name</label>
+                <input id="name" name="name" type="text" placeholder="Enter student name" required />
+              </div>
+
+              <div>
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="+91 98XXXXXX10" required />
+              </div>
+
+              <div>
+                <label for="course">Interested In</label>
+                <select id="course" name="course" required>
+                  <option value="" disabled selected>Select a course</option>
+                  <option>Foundation (Class 9–10)</option>
+                  <option>Boards (Class 11–12)</option>
+                  <option>IIT‑JEE</option>
+                  <option>MEDICAL</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" placeholder="Tell us class, board, and goals..."></textarea>
+              </div>
+
+              <button class="cta" type="submit">Submit <span aria-hidden="true">→</span></button>
+              <p class="note">We will contact you for admission guidance. No spam.</p>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h3 style="margin-top:0;">Visit Us</h3>
+            <p class="sub" style="margin-bottom:0;">
+              <strong>Address:</strong> SCF-8, First-Floor, Sector 15, Panchkula, Haryana 134113<br/>
+              <strong>Phone:</strong> <a href="tel:+917340710309">+91 7340710309</a>, <a href="tel:+919041452013">+91 9041452013</a><br/>
+              <strong>Email:</strong> <a href="mailto:info@sukritcareerinstitute.in">info@sukritcareerinstitute.in</a><br/>
+              <strong>Map:</strong> <a href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open Location</a>
+            </p>
+
+            <div class="heroActions" style="margin-top:var(--space-4);">
+              <a class="btn" href="https://wa.me/917340710309" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
+            </div>
+
+            <p class="note" style="margin-top:var(--space-4);">
+              For quick queries, WhatsApp us on the same number.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="yr"></span> Sukrit Career Institute. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    // Theme toggle (dark/light) with persistence
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+
+    function setTheme(mode){
+      root.setAttribute("data-theme", mode);
+      localStorage.setItem("theme", mode);
+      btn.textContent = (mode === "dark") ? "🌙" : "☀️";
+      btn.setAttribute("aria-label", mode === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      btn.title = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    }
+
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") {
+      setTheme(saved);
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  </script>
 </body>
 </html>
