@@ -1,34 +1,182 @@
 <!doctype html>
-<html lang="en" data-theme="">
+<html lang="en-IN" data-theme="">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Primary SEO -->
-  <title>Sukrit Career Institute | Foundation (9–10), Boards (11–12), IIT-JEE & MEDICAL Coaching in Panchkula</title>
-  <meta name="description" content="Sukrit Career Institute, Sector 15 Panchkula (Haryana) – Coaching for Class 9–10 Foundation, Class 11–12 Boards, IIT-JEE and MEDICAL. Concept clarity, regular tests, doubt sessions, and mentoring." />
+  <title>Sukrit Career Institute | Foundation (9–10), Boards (11–12), IIT‑JEE & MEDICAL Coaching in Panchkula</title>
+  <meta name="description"
+    content="Sukrit Career Institute, Sector 15 Panchkula (Haryana) – Coaching for Class 9–10 Foundation, Class 11–12 Boards, IIT‑JEE & MEDICAL. Concept clarity, regular tests, doubt sessions, and mentoring." />
   <link rel="canonical" href="https://sukritcareerinstitute.in/" />
   <meta name="robots" content="index,follow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sukrit Career Institute | Coaching in Panchkula (Sector 15)" />
-  <meta property="og:description" content="Foundation (9–10), Boards (11–12), IIT-JEE & MEDICAL coaching in Panchkula. Book a free counseling call." />
+  <meta property="og:description"
+    content="Foundation (9–10), Boards (11–12), IIT‑JEE & MEDICAL coaching in Panchkula. Book a free counseling call." />
   <meta property="og:url" content="https://sukritcareerinstitute.in/" />
-  <!-- Optional (add after you upload): <meta property="og:image" content="https://sukritcareerinstitute.in/assets/og-cover.jpg" /> -->
+  <!-- Optional after upload -->
+  <!-- <meta property="og:image" content="https://sukritcareerinstitute.in/assets/og-cover.jpg" /> -->
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicons (place files in /assets) -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
   <!--<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"> -->
   <link rel="manifest" href="/assets/site.webmanifest">
 
+  <!-- Preload logo -->
+  <link rel="preload" as="image" href="/assets/logo.png" imagesrcset="/assets/logo.png 1x" />
+
+  <!-- Cloudflare Turnstile (Captcha) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <!-- Turnstile works by generating cf-turnstile-response token. Formspree can verify it when enabled. -->
+
   <style>
     /* =========================
        THEME TOKENS (Light + Dark)
        ========================= */
-    :root{
+    /* =========================
+       SIDE NAV (Mobile Drawer)
+       ========================= */
+    .sideNav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 84vw;
+      max-width: 340px;
+      background: var(--bg);
+      box-shadow: var(--shadow);
+      z-index: 10000;
+      transform: translateX(-110%);
+      transition: transform .22s cubic-bezier(.77,.2,.05,1.0);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      border-radius: 0 22px 22px 0;
+      border-right: 1.5px solid var(--line);
+      outline: none;
+    }
+    .sideNav.open {
+      transform: translateX(0);
+    }
+    .sideNavHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 18px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .sideNavLinks {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 32px 24px 24px 24px;
+    }
+    .sideNavLinks a {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 18px;
+      border-radius: 12px;
+      padding: 10px 8px;
+      transition: background .13s, color .13s;
+    }
+    .sideNavLinks a:hover {
+      background: var(--panel2);
+      color: var(--brand);
+    }
+    .sideNavClose {
+      font-size: 22px;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .13s;
+    }
+    .sideNavClose:hover {
+      background: var(--panel2);
+    }
+    .sideNavOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.32);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s;
+    }
+    .sideNavOverlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @media (max-width: 900px) {
+      .links {
+        display: none !important;
+      }
+      .mobileMenuBtn {
+        display: inline-flex !important;
+        margin-right: 8px;
+        margin-left: 0;
+        order: 0;
+      }
+      .brand {
+        order: 1;
+        margin-right: auto;
+        margin-left: 0;
+        gap: 10px;
+      }
+      .navRight {
+        order: 2;
+        margin-left: auto;
+      }
+    }
+    @media (max-width: 520px) {
+      .nav {
+        padding: 8px 0;
+      }
+      .mobileMenuBtn {
+        margin-right: 6px;
+      }
+      .brandText span {
+        display: none;
+      }
+      .brandText strong {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.1;
+        max-width: 14ch;
+        font-size: 15px;
+      }
+      .logoImg {
+        width: 54px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        margin-right: 2px;
+      }
+      .brand {
+        gap: 7px;
+      }
+    }
+    :root {
       --space-1: 6px;
       --space-2: 10px;
       --space-3: 14px;
@@ -41,76 +189,79 @@
       --radius-lg: 26px;
       --max: 1120px;
 
-      --shadow-soft: 0 10px 26px rgba(0,0,0,.14);
-      --shadow: 0 16px 44px rgba(0,0,0,.18);
+      --shadow-soft: 0 10px 26px rgba(0, 0, 0, .14);
+      --shadow: 0 16px 44px rgba(0, 0, 0, .18);
 
       /* default = dark */
       --bg: #0b1220;
-      --bg2: rgba(255,255,255,.04);
-      --panel: rgba(255,255,255,.07);
-      --panel2: rgba(255,255,255,.10);
-      --line: rgba(255,255,255,.14);
+      --bg2: rgba(255, 255, 255, .04);
+      --panel: rgba(255, 255, 255, .07);
+      --panel2: rgba(255, 255, 255, .10);
+      --line: rgba(255, 255, 255, .14);
 
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.74);
-      --muted2: rgba(255,255,255,.60);
+      --text: rgba(255, 255, 255, .92);
+      --muted: rgba(255, 255, 255, .74);
+      --muted2: rgba(255, 255, 255, .60);
 
       --brand: #5eead4;
       --brand2: #60a5fa;
       --brandText: #07101f;
 
+      --danger: #fb7185;
+      --success: #34d399;
+
       color-scheme: dark;
     }
 
-    @media (prefers-color-scheme: light){
-      :root{
+    @media (prefers-color-scheme: light) {
+      :root {
         --bg: #f7f8fb;
-        --bg2: rgba(10,15,30,.04);
-        --panel: rgba(10,15,30,.04);
-        --panel2: rgba(10,15,30,.06);
-        --line: rgba(10,15,30,.12);
+        --bg2: rgba(10, 15, 30, .04);
+        --panel: rgba(10, 15, 30, .04);
+        --panel2: rgba(10, 15, 30, .06);
+        --line: rgba(10, 15, 30, .12);
 
-        --text: rgba(10,15,30,.92);
-        --muted: rgba(10,15,30,.70);
-        --muted2: rgba(10,15,30,.56);
+        --text: rgba(10, 15, 30, .92);
+        --muted: rgba(10, 15, 30, .70);
+        --muted2: rgba(10, 15, 30, .56);
 
-        --shadow-soft: 0 10px 26px rgba(10,15,30,.10);
-        --shadow: 0 16px 44px rgba(10,15,30,.12);
+        --shadow-soft: 0 10px 26px rgba(10, 15, 30, .10);
+        --shadow: 0 16px 44px rgba(10, 15, 30, .12);
 
         color-scheme: light;
       }
     }
 
-    html[data-theme="dark"]{
+    html[data-theme="dark"] {
       --bg: #0b1220;
-      --bg2: rgba(255,255,255,.04);
-      --panel: rgba(255,255,255,.07);
-      --panel2: rgba(255,255,255,.10);
-      --line: rgba(255,255,255,.14);
+      --bg2: rgba(255, 255, 255, .04);
+      --panel: rgba(255, 255, 255, .07);
+      --panel2: rgba(255, 255, 255, .10);
+      --line: rgba(255, 255, 255, .14);
 
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.74);
-      --muted2: rgba(255,255,255,.60);
+      --text: rgba(255, 255, 255, .92);
+      --muted: rgba(255, 255, 255, .74);
+      --muted2: rgba(255, 255, 255, .60);
 
-      --shadow-soft: 0 10px 26px rgba(0,0,0,.22);
-      --shadow: 0 16px 44px rgba(0,0,0,.30);
+      --shadow-soft: 0 10px 26px rgba(0, 0, 0, .22);
+      --shadow: 0 16px 44px rgba(0, 0, 0, .30);
 
       color-scheme: dark;
     }
 
-    html[data-theme="light"]{
+    html[data-theme="light"] {
       --bg: #f7f8fb;
-      --bg2: rgba(10,15,30,.04);
-      --panel: rgba(10,15,30,.04);
-      --panel2: rgba(10,15,30,.06);
-      --line: rgba(10,15,30,.12);
+      --bg2: rgba(10, 15, 30, .04);
+      --panel: rgba(10, 15, 30, .04);
+      --panel2: rgba(10, 15, 30, .06);
+      --line: rgba(10, 15, 30, .12);
 
-      --text: rgba(10,15,30,.92);
-      --muted: rgba(10,15,30,.70);
-      --muted2: rgba(10,15,30,.56);
+      --text: rgba(10, 15, 30, .92);
+      --muted: rgba(10, 15, 30, .70);
+      --muted2: rgba(10, 15, 30, .56);
 
-      --shadow-soft: 0 10px 26px rgba(10,15,30,.10);
-      --shadow: 0 16px 44px rgba(10,15,30,.12);
+      --shadow-soft: 0 10px 26px rgba(10, 15, 30, .10);
+      --shadow: 0 16px 44px rgba(10, 15, 30, .12);
 
       color-scheme: light;
     }
@@ -118,25 +269,61 @@
     /* =========================
        BASE
        ========================= */
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
       line-height: 1.55;
       background:
-        radial-gradient(1200px 600px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(94,234,212,.14), transparent 55%),
+        radial-gradient(1200px 600px at 10% 0%, rgba(96, 165, 250, .18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(94, 234, 212, .14), transparent 55%),
         var(--bg);
     }
-    a{ color:inherit; text-decoration:none; }
-    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Skip link */
+    .skipLink {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skipLink:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      z-index: 9999;
+    }
 
     /* =========================
        NAV
        ========================= */
-    header{
+    header {
       position: sticky;
       top: 0;
       z-index: 20;
@@ -144,45 +331,47 @@
       background: color-mix(in srgb, var(--bg) 72%, transparent);
       border-bottom: 1px solid var(--line);
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 12px 0;
       gap: var(--space-3);
+      position: relative;
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 12px;
       font-weight: 900;
       letter-spacing: .2px;
       min-width: 0;
+      flex-shrink: 1;
     }
-
-    /* Logo Image */
-    .logoImg{
-      width: 46px;
-      height: 46px;
+    .logoImg {
+      /* width: 46px;
+      height: 46px; */
+      width: 68px;
+      height: 45px;
       object-fit: contain;
       border-radius: 12px;
       flex: 0 0 auto;
       background: transparent;
     }
-    .brandText{
-      display:flex;
+    .brandText {
+      display: flex;
       flex-direction: column;
       line-height: 1.05;
       min-width: 0;
     }
-    .brandText strong{
+    .brandText strong {
       font-size: 16px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .brandText span{
+    .brandText span {
       font-size: 12px;
       color: var(--muted);
       font-weight: 800;
@@ -193,23 +382,24 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
-    .links{
-      display:none;
+    .links {
+      display: none;
       gap: 18px;
       color: var(--muted);
       font-weight: 800;
       font-size: 14px;
     }
-    .links a:hover{ color: var(--text); }
-
-    .navRight{
-      display:flex;
-      align-items:center;
+    .links a:hover {
+      color: var(--text);
+    }
+    .navRight {
+      display: flex;
+      align-items: center;
       gap: 10px;
     }
-
-    .btn, .cta, .iconBtn{
+    .btn,
+    .cta,
+    .iconBtn {
       border: 1px solid var(--line);
       background: var(--panel);
       color: var(--text);
@@ -217,63 +407,82 @@
       padding: 10px 14px;
       font-weight: 900;
       cursor: pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, filter .12s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
       white-space: nowrap;
     }
-    .btn:hover, .cta:hover, .iconBtn:hover{
+    .btn:hover,
+    .iconBtn:hover {
       transform: translateY(-1px);
       background: var(--panel2);
       border-color: color-mix(in srgb, var(--line) 70%, var(--brand) 30%);
     }
-    .btn:active, .cta:active, .iconBtn:active{ transform: translateY(0); }
-
-    .cta{
+    .cta {
       background: linear-gradient(135deg, var(--brand), var(--brand2));
       color: var(--brandText);
       border: none;
     }
-    .iconBtn{
+    .cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+    .iconBtn {
       width: 42px;
       height: 42px;
       padding: 0;
       border-radius: 14px;
       font-size: 16px;
     }
-	
-	
-/* Generic hover for normal buttons/icons only */
-.btn:hover, .iconBtn:hover{
-  transform: translateY(-1px);
-  background: var(--panel2);
-  border-color: color-mix(in srgb, var(--line) 70%, var(--brand) 30%);
-}
 
-/* CTA has its own hover (stays vibrant + readable) */
-.cta:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-  background: linear-gradient(135deg, var(--brand), var(--brand2));
-  color: var(--brandText);
-}
+  .sukrit-brand .i-red {
+  position: relative;
+  color: inherit;
+  font-style: normal;
+  font-family: inherit;
+  display: inline-block;
 
-
+  }
+  .sukrit-brand .i-red::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 0.19em;
+    height: 0.18em;
+    border-radius: 50%;
+    background: #fb1d1d;
+    z-index: 2;
+    margin: 79% 0;
+    display: block;
+  }
+  .i-red {
+    /* font-family: Arial, sans-serif; */
+    text-transform: lowercase !important;
+  }
+  .sukrit-brand .i-red {
+    text-shadow: 0 -0.22em 0 #0b1220; /* background color to cover the default dot */
+  }
     /* =========================
        HERO
        ========================= */
-    .hero{ padding: var(--space-7) 0 var(--space-5); }
-    .heroGrid{
-      display:grid;
+    .hero {
+      padding: var(--space-7) 0 var(--space-5);
+    }
+
+    .heroGrid {
+      display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-5);
       align-items: start;
     }
-    .badge{
-      display:inline-flex;
-      align-items:center;
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
       padding: 8px 12px;
       border-radius: 999px;
@@ -283,34 +492,54 @@
       font-size: 13px;
       width: fit-content;
     }
-    .dot{
+
+    .dot {
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: #34d399;
-      box-shadow: 0 0 0 6px rgba(52,211,153,.12);
+      background: var(--success);
+      box-shadow: 0 0 0 6px rgba(52, 211, 153, .12);
     }
-	
-	
-    h1{
+
+    h1 {
       margin: var(--space-4) 0 var(--space-2);
       font-size: clamp(30px, 4.4vw, 48px);
       line-height: 1.12;
       letter-spacing: -0.4px;
     }
-    .lead{
+
+    .heroTagline {
+      margin: 0 0 var(--space-2);
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.25;
+      letter-spacing: -0.2px;
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .heroSubtitle {
+      margin: 0 0 var(--space-4);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+
+    .lead {
       margin: 0 0 var(--space-4);
       color: var(--muted);
       max-width: 64ch;
       font-size: 16px;
     }
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
       gap: var(--space-3);
       margin-top: var(--space-4);
     }
-    .note{
+
+    .note {
       font-size: 12px;
       color: var(--muted2);
       margin-top: var(--space-3);
@@ -319,7 +548,7 @@
     /* =========================
        CARD SYSTEM & GRIDS
        ========================= */
-    .card{
+    .card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background: linear-gradient(180deg, var(--panel2), var(--panel));
@@ -327,29 +556,35 @@
       box-shadow: var(--shadow-soft);
       overflow: hidden;
     }
-    .cardLift{
+
+    .cardLift {
       transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
     }
-    .cardLift:hover{
+
+    .cardLift:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow);
       border-color: color-mix(in srgb, var(--line) 65%, var(--brand) 35%);
     }
 
-    section{ padding: var(--space-7) 0; }
-    .title{
-      margin:0 0 var(--space-2);
+    section {
+      padding: var(--space-7) 0;
+    }
+
+    .title {
+      margin: 0 0 var(--space-2);
       font-size: 22px;
       letter-spacing: -0.2px;
     }
-    .sub{
-      margin:0 0 var(--space-5);
+
+    .sub {
+      margin: 0 0 var(--space-5);
       color: var(--muted);
       max-width: 78ch;
     }
 
-    .cardsGrid{
-      display:grid;
+    .cardsGrid {
+      display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-4);
     }
@@ -357,26 +592,29 @@
     /* =========================
        QUICK INFO PANEL
        ========================= */
-    .quickInfo{
+    .quickInfo {
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background: linear-gradient(180deg, var(--panel2), var(--panel));
       box-shadow: var(--shadow);
       padding: var(--space-5);
     }
-    .qiHeader{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
+
+    .qiHeader {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       gap: var(--space-3);
       margin-bottom: var(--space-4);
     }
-    .qiHeader h2{
-      margin:0;
+
+    .qiHeader h2 {
+      margin: 0;
       font-size: 18px;
       letter-spacing: -0.2px;
     }
-    .qiPill{
+
+    .qiPill {
       font-size: 12px;
       padding: 6px 10px;
       border-radius: 999px;
@@ -385,15 +623,17 @@
       color: var(--muted);
       white-space: nowrap;
     }
-    .qiList{
-      list-style:none;
-      padding:0;
-      margin:0 0 var(--space-4);
-      display:grid;
+
+    .qiList {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-4);
+      display: grid;
       gap: var(--space-3);
     }
-    .qiItem{
-      display:grid;
+
+    .qiItem {
+      display: grid;
       grid-template-columns: 34px 1fr;
       gap: var(--space-3);
       padding: 12px 12px;
@@ -401,28 +641,33 @@
       background: var(--bg2);
       border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
     }
-    .qiIcon{
-      width: 34px; height: 34px;
+
+    .qiIcon {
+      width: 34px;
+      height: 34px;
       border-radius: 12px;
-      display:grid;
-      place-items:center;
+      display: grid;
+      place-items: center;
       background: color-mix(in srgb, var(--brand) 14%, transparent);
       border: 1px solid color-mix(in srgb, var(--brand) 26%, transparent);
       font-weight: 900;
     }
-    .qiItem strong{
-      display:block;
+
+    .qiItem strong {
+      display: block;
       font-size: 13px;
       color: var(--muted2);
       margin-bottom: 2px;
     }
-    .qiItem span{
-      display:block;
+
+    .qiItem span {
+      display: block;
       font-size: 14px;
       color: var(--text);
     }
-    .qiActions{
-      display:grid;
+
+    .qiActions {
+      display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-3);
     }
@@ -430,73 +675,236 @@
     /* =========================
        CONTACT FORM
        ========================= */
-    form{ display:grid; gap: var(--space-3); }
-    label{ font-size: 13px; color: var(--muted); font-weight: 900; }
-    input, select, textarea{
-      width:100%;
+    form {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 900;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
       padding: 12px 12px;
       border-radius: 14px;
       border: 1px solid var(--line);
       background: var(--panel);
       color: var(--text);
-      outline:none;
+      outline: none;
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
     }
-    textarea{ min-height: 120px; resize: vertical; }
 
-    footer{
+    input::placeholder,
+    textarea::placeholder {
+      color: color-mix(in srgb, var(--muted2) 90%, transparent);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--brand) 65%, transparent);
+      outline-offset: 2px;
+      border-radius: 14px;
+    }
+
+    /* =========================
+       SELECT FIX (No white-on-white)
+       ========================= */
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-right: 44px;
+
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      color: var(--text);
+
+      background-image:
+        linear-gradient(45deg, transparent 50%, color-mix(in srgb, var(--text) 75%, transparent) 50%),
+        linear-gradient(135deg, color-mix(in srgb, var(--text) 75%, transparent) 50%, transparent 50%),
+        linear-gradient(180deg, var(--panel2), var(--panel));
+      background-position:
+        calc(100% - 18px) 52%,
+        calc(100% - 12px) 52%,
+        0 0;
+      background-size:
+        6px 6px,
+        6px 6px,
+        100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    select option {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    select option[disabled] {
+      color: var(--muted2);
+    }
+
+    /* Turnstile box spacing (keeps layout neat) */
+    .captchaWrap {
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--bg2);
+    }
+
+    /* =========================
+       Toast Banner
+       ========================= */
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      max-width: min(420px, calc(100% - 36px));
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 65%, transparent);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      color: var(--text);
+
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .toastIcon {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-weight: 900;
+    }
+
+    .toastTitle {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .toastMsg {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .toast.success .toastIcon {
+      border-color: color-mix(in srgb, var(--success) 45%, var(--line));
+      background: color-mix(in srgb, var(--success) 18%, var(--panel));
+    }
+
+    .toast.error .toastIcon {
+      border-color: color-mix(in srgb, var(--danger) 45%, var(--line));
+      background: color-mix(in srgb, var(--danger) 18%, var(--panel));
+    }
+
+    .toastClose {
+      margin-left: auto;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 12px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+
+    .toastClose:hover {
+      transform: translateY(-1px);
+      background: var(--panel2);
+    }
+
+    footer {
       padding: var(--space-6) 0 var(--space-7);
       border-top: 1px solid var(--line);
       color: var(--muted);
     }
 
-    /* =========================
-       RESPONSIVE
-       ========================= */
-	   
-	
-	   /* MOBILE FIX: allow wrapping and show full name */
-@media (max-width: 520px) {
-  .brandText strong {
-    white-space: normal;      /* allow wrap */
-    overflow: visible;
-    text-overflow: clip;
-    display: -webkit-box;     /* clamp to 2 lines */
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 1.1;
-    max-width: 15ch;          /* prevents taking whole nav */
-  }
+    @media (min-width: 760px) {
+      .links {
+        display: flex;
+      }
 
-  .brandText {
-    display: none;            /* hide "CAREER INSTITUTE" on very small screens */
-  }
-
-  .logoImg {
-    width: 40px;
-    height: 40px;
-  }
-  }
-  
-    @media (min-width: 760px){
-      .links{ display:flex; }
-      .heroGrid{
+      .heroGrid {
         grid-template-columns: 1.12fr .88fr;
         gap: var(--space-6);
       }
-      .cardsGrid{ grid-template-columns: repeat(3, 1fr); }
-      .qiActions{ grid-template-columns: 1fr 1fr; }
 
-      /* Sticky only on desktop */
-      .quickInfo{
+      .cardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .qiActions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .quickInfo {
         position: sticky;
         top: 84px;
       }
     }
 
-    :focus-visible{
-      outline: 3px solid color-mix(in srgb, var(--brand) 65%, transparent);
-      outline-offset: 2px;
-      border-radius: 14px;
+    @media (max-width: 520px) {
+      .brandText span {
+        display: none;
+      }
+
+      .brandText strong {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.1;
+        max-width: 18ch;
+      }
+
+      .logoImg {
+        width: 68px;
+        height: 45px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
     }
   </style>
 
@@ -508,10 +916,7 @@
     "name":"Sukrit Career Institute",
     "url":"https://sukritcareerinstitute.in/",
     "description":"Coaching for Foundation (Class 9–10), Boards (Class 11–12), IIT-JEE and MEDICAL in Panchkula (Sector 15, Haryana).",
-    "telephone":[
-      "+91-7340701309",
-      "+91-9041452013"
-    ],
+    "telephone":[ "+91-7340701309", "+91-9041452013" ],
     "email":"info@sukritcareerinstitute.in",
     "address":{
       "@type":"PostalAddress",
@@ -526,74 +931,102 @@
 </head>
 
 <body>
+  <a class="skipLink" href="#main">Skip to content</a>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
   <header>
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
+        <!-- Hamburger for mobile: now far left, always before brand -->
+        <button class="iconBtn mobileMenuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu" title="Open menu" style="display:none; margin-right:10px;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="5" width="26" height="3.2" rx="1.6" fill="currentColor"/>
+            <rect y="11.4" width="26" height="3.2" rx="1.6" fill="currentColor"/>
+            <rect y="17.8" width="26" height="3.2" rx="1.6" fill="currentColor"/>
+          </svg>
+        </button>
         <a href="#top" class="brand" aria-label="Sukrit Career Institute">
           <img src="/assets/logo.png" alt="Sukrit Career Institute logo" class="logoImg" />
           <div class="brandText">
-            <strong>Sukrit Career Institute</strong>
-            <span>Career Institute</span>
+            <strong><span>SuKR<span class="i-red">i</span>t Career Institute</span></strong>
           </div>
         </a>
-
         <div class="links" aria-label="Sections">
           <a href="#courses">Courses</a>
           <a href="#why">Why Us</a>
           <a href="#contact">Contact</a>
         </div>
-
         <div class="navRight">
-          <button class="iconBtn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle light/dark">🌙</button>
+          <button class="iconBtn" id="themeToggle" type="button" aria-label="Toggle theme"
+            title="Toggle light/dark">🌙</button>
           <a class="cta" href="#contact">Book Free Counseling →</a>
         </div>
       </nav>
     </div>
+    <!-- Side Drawer Navigation for Mobile -->
+    <div id="sideNav" class="sideNav" aria-label="Mobile navigation" tabindex="-1">
+      <div class="sideNavHeader">
+        <a href="#top" class="brand" aria-label="Sukrit Career Institute" tabindex="0">
+          <img src="/assets/logo.png" alt="Sukrit Career Institute logo" class="logoImg" />
+          <div class="brandText">
+            <strong><span class="sukrit-brand">Sukr<span class="i-red">i</span>t</span> Career Institute</strong>
+            <span>Career Institute</span>
+          </div>
+        </a>
+        <button class="iconBtn sideNavClose" id="sideNavClose" type="button" aria-label="Close menu" title="Close menu">
+          ✕
+        </button>
+      </div>
+      <nav class="sideNavLinks">
+        <a href="#courses">Courses</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact" style="margin-top:18px;">Book Free Counseling →</a>
+      </nav>
+    </div>
+    <div id="sideNavOverlay" class="sideNavOverlay" tabindex="-1"></div>
   </header>
 
-  <main id="top">
-    <section class="hero">
+  <main id="main">
+    <section class="hero" id="top">
       <div class="container">
         <div class="heroGrid">
 
-          <!-- Left -->
           <div>
-            <div class="badge"><span class="dot" aria-hidden="true"></span> Sector 15, Panchkula • Foundation • Boards • IIT‑JEE • MEDICAL</div>
+            <div class="badge">
+              <span class="dot" aria-hidden="true"></span>
+              Sector 15, Panchkula • Foundation • Boards • IIT‑JEE • MEDICAL
+            </div>
 
-				
-				<h1 class="heroTitle">Sukrit Career Institute</h1>
+            <h1><span class="sukrit-brand">SuKR<span class="i-red">i</span>T</span> Career Institute</h1>
+            <p class="heroTagline">
+              Build strong fundamentals.<br>
+              Excel in Boards.<br>
+              Prepare confidently for IIT‑JEE &amp; MEDICAL.
+            </p>
 
-				<h2 class="">
-				  Build strong fundamentals.<br>
-				  Excel in Boards.<br>
-				  Prepare confidently for IIT‑JEE &amp; MEDICAL
-				</h2>
-				
+            <p class="heroSubtitle">
+              Foundation (Class 9–10) • Boards (Class 11–12) • IIT‑JEE • MEDICAL
+            </p>
 
-				<p class="heroSubtitle">
-				  Foundation (Class 9–10) • Boards (Class 11–12) • IIT‑JEE • MEDICAL
-				</p>
-
-				<p class="lead">
-				  <strong>Sukrit Career Institute</strong> prepares students from <strong>Class 9 to 12</strong> with a
-				  concept‑first approach, structured practice, regular assessments, and focused doubt‑solving, 
-				  helping them succeed in <strong>school boards and competitive exams</strong> with confidence.
-				</p>
-
+            <p class="lead">
+              <strong>Sukrit Career Institute</strong> prepares students from <strong>Class 9 to 12</strong> with a
+              concept‑first approach, structured practice, regular assessments, and focused doubt‑solving,
+              helping them succeed in <strong>school boards and competitive exams</strong> with confidence.
+            </p>
 
             <div class="actions">
               <a class="cta" href="#contact">Book Free Counseling <span aria-hidden="true">→</span></a>
               <a class="btn" href="#courses">Explore Courses</a>
               <a class="btn" href="tel:+917340701309">Call: 7340701309</a>
               <a class="btn" href="tel:+919041452013">Call: 9041452013</a>
-			  <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
-
+              <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
             </div>
 
             <p class="note">✅ Limited seats • ✅ Weekly assessments • ✅ Focused mentoring</p>
           </div>
 
-          <!-- Right: Quick Info -->
           <aside class="quickInfo" aria-label="Quick Info">
             <div class="qiHeader">
               <h2>Quick Info</h2>
@@ -628,12 +1061,11 @@
 
             <div class="qiActions">
               <a class="btn" href="#contact">Request a Callback</a>
-              <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open in Maps</a>
+              <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open in
+                Maps</a>
               <a class="btn" href="mailto:info@sukritcareerinstitute.in">Email Us</a>
               <a class="btn" href="https://wa.me/917340701309" target="_blank" rel="noopener">WhatsApp</a>
             </div>
-
-            <p class="note"></p>
           </aside>
 
         </div>
@@ -642,24 +1074,26 @@
 
     <section id="courses">
       <div class="container">
-        <h2 class="title">Courses & Preparation</h2>
-
+        <h2 class="title">Courses &amp; Preparation</h2>
         <p class="sub">Structured programs designed for strong fundamentals and exam success.</p>
 
         <div class="cardsGrid">
           <article class="card cardLift">
             <h3>Foundation (Class 9–10)</h3>
-            <p class="sub" style="margin:0;">Concept clarity, disciplined practice, and a strong base for boards + entrance preparation.</p>
+            <p class="sub" style="margin:0;">Concept clarity, disciplined practice, and a strong base for boards +
+              entrance preparation.</p>
           </article>
 
           <article class="card cardLift">
             <h3>Boards (Class 11–12)</h3>
-            <p class="sub" style="margin:0;">Board-aligned syllabus coverage with revision strategy, tests, and performance tracking.</p>
+            <p class="sub" style="margin:0;">Board-aligned syllabus coverage with revision strategy, tests, and
+              performance tracking.</p>
           </article>
 
           <article class="card cardLift">
-            <h3>IIT‑JEE & MEDICAL</h3>
-            <p class="sub" style="margin:0;">Advanced problem-solving, mock tests, and exam strategy to improve speed & accuracy.</p>
+            <h3>IIT‑JEE &amp; MEDICAL</h3>
+            <p class="sub" style="margin:0;">Advanced problem-solving, mock tests, and exam strategy to improve speed
+              &amp; accuracy.</p>
           </article>
         </div>
       </div>
@@ -677,57 +1111,79 @@
           </article>
 
           <article class="card cardLift">
-            <h3>Regular Tests & Feedback</h3>
+            <h3>Regular Tests &amp; Feedback</h3>
             <p class="sub" style="margin:0;">Frequent assessments with analysis to identify gaps early.</p>
           </article>
 
           <article class="card cardLift">
-            <h3>Doubt Support & Mentoring</h3>
+            <h3>Doubt Support &amp; Mentoring</h3>
             <p class="sub" style="margin:0;">Dedicated doubt sessions and guidance to keep students on track.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
-        <h2 class="title">Contact & Admissions</h2>
+        <h2 class="title">Contact &amp; Admissions</h2>
         <p class="sub">Fill the form and we’ll guide you on course selection, batch timings, and admission process.</p>
 
         <div class="heroGrid">
           <div class="card">
             <h3 style="margin-top:0;">Request a Callback</h3>
 
-            <!-- IMPORTANT: Replace action URL with your Formspree endpoint -->
-            <form action="#" method="POST">
+            <form id="leadForm" action="FORM_ENDPOINT" method="POST" novalidate>
+              <!-- Honeypot (anti-spam) -->
+              <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div>
                 <label for="name">Student Name</label>
-                <input id="name" name="name" type="text" placeholder="Enter student name" required />
+                <input id="name" name="name" type="text" placeholder="Enter student name" autocomplete="name"
+                  minlength="3" maxlength="60" pattern="^[A-Za-z][A-Za-z\s.'-]{2,59}$" required />
+
               </div>
 
               <div>
                 <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" type="tel" placeholder="+91 98XXXXXX10" required />
+                <input id="phone" name="phone" type="tel" placeholder="+91 98XXXXXX10" autocomplete="tel"
+                  inputmode="tel" minlength="10" maxlength="16" pattern="^(\+?91[\s-]?)?[6-9]\d{9}$" required />
+
+                <p class="note" style="margin:8px 0 0;">Format: +91XXXXXXXXXX or 10-digit number</p>
               </div>
 
               <div>
                 <label for="course">Interested In</label>
                 <select id="course" name="course" required>
-                  <option value="" disabled selected>Select a course</option>
-                  <option>Foundation (Class 9–10)</option>
-                  <option>Boards (Class 11–12)</option>
-                  <option>IIT‑JEE</option>
-                  <option>MEDICAL</option>
+                  <option value="" disabled hidden selected>Select a course</option>
+                  <option value="Foundation (Class 9–10)">Foundation (Class 9–10)</option>
+                  <option value="Boards (Class 11–12)">Boards (Class 11–12)</option>
+                  <option value="IIT-JEE">IIT‑JEE</option>
+                  <option value="MEDICAL">MEDICAL</option>
                 </select>
               </div>
+
+              <!-- CAPTCHA (Turnstile) 
+              <div class="captchaWrap" aria-label="Captcha verification">
+                <label style="margin-bottom:10px;">Verification</label>
+                <div class="cf-turnstile"
+                     data-sitekey="TURNSTILE_SITE_KEY"
+                     data-theme="auto">
+                </div>
+                <p class="note" style="margin:10px 0 0;">Helps prevent spam submissions.</p>
+              </div>-->
 
               <div>
                 <label for="message">Message (Optional)</label>
                 <textarea id="message" name="message" placeholder="Tell us class, board, and goals..."></textarea>
               </div>
 
-              <button class="cta" type="submit">Submit <span aria-hidden="true">→</span></button>
+              <button class="cta" id="submitBtn" type="submit">
+                Submit <span aria-hidden="true">→</span>
+              </button>
+
               <p class="note">We will contact you for admission guidance. No spam.</p>
             </form>
           </div>
@@ -735,13 +1191,16 @@
           <aside class="card">
             <h3 style="margin-top:0;">Visit Us</h3>
             <p class="sub" style="margin-bottom:0;">
-              <strong>Address:</strong> SCF-8, First-Floor, Sector 15, Panchkula, Haryana 134113<br/>
-              <strong>Phone:</strong> <a href="tel:+917340701309">+91 7340701309</a>, <a href="tel:+919041452013">+91 9041452013</a><br/>
-              <strong>Email:</strong> <a href="mailto:info@sukritcareerinstitute.in">info@sukritcareerinstitute.in</a><br/>
-              <strong>Map:</strong> <a href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open Location</a>
+              <strong>Address:</strong> SCF-8, First-Floor, Sector 15, Panchkula, Haryana 134113<br />
+              <strong>Phone:</strong> <a href="tel:+917340701309">+91 7340701309</a>, <a href="tel:+919041452013">+91
+                9041452013</a><br />
+              <strong>Email:</strong> <a
+                href="mailto:info@sukritcareerinstitute.in">info@sukritcareerinstitute.in</a><br />
+              <strong>Map:</strong> <a href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Open
+                Location</a>
             </p>
 
-            <div class="heroActions" style="margin-top:var(--space-4);">
+            <div class="actions" style="margin-top:var(--space-4);">
               <a class="btn" href="https://wa.me/917340701309" target="_blank" rel="noopener">WhatsApp</a>
               <a class="btn" href="https://share.google/Yhalayz8Rd7DoVfpd" target="_blank" rel="noopener">Directions</a>
             </div>
@@ -765,16 +1224,55 @@
     // Current year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
+    // SideNav (Mobile Drawer)
+    const sideNav = document.getElementById("sideNav");
+    const sideNavOverlay = document.getElementById("sideNavOverlay");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const sideNavClose = document.getElementById("sideNavClose");
+
+    function openSideNav() {
+      sideNav.classList.add("open");
+      sideNavOverlay.classList.add("open");
+      sideNav.focus();
+      document.body.style.overflow = "hidden";
+    }
+    function closeSideNav() {
+      sideNav.classList.remove("open");
+      sideNavOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    if (mobileMenuBtn && sideNav && sideNavOverlay && sideNavClose) {
+      mobileMenuBtn.addEventListener("click", openSideNav);
+      sideNavClose.addEventListener("click", closeSideNav);
+      sideNavOverlay.addEventListener("click", closeSideNav);
+      // Close on Esc
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && sideNav.classList.contains("open")) closeSideNav();
+      });
+      // Trap focus inside drawer
+      sideNav.addEventListener("keydown", (e) => {
+        if (e.key === "Tab") {
+          const focusable = sideNav.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])');
+          const first = focusable[0];
+          const last = focusable[focusable.length-1];
+          if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
+            e.preventDefault();
+            (e.shiftKey ? last : first).focus();
+          }
+        }
+      });
+    }
+
     // Theme toggle (dark/light) with persistence
     const root = document.documentElement;
-    const btn = document.getElementById("themeToggle");
+    const themeBtn = document.getElementById("themeToggle");
 
-    function setTheme(mode){
+    function setTheme(mode) {
       root.setAttribute("data-theme", mode);
       localStorage.setItem("theme", mode);
-      btn.textContent = (mode === "dark") ? "🌙" : "☀️";
-      btn.setAttribute("aria-label", mode === "dark" ? "Switch to light theme" : "Switch to dark theme");
-      btn.title = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
+      themeBtn.textContent = (mode === "dark") ? "🌙" : "☀️";
+      themeBtn.setAttribute("aria-label", mode === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      themeBtn.title = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
     }
 
     const saved = localStorage.getItem("theme");
@@ -785,10 +1283,197 @@
       setTheme(prefersDark ? "dark" : "light");
     }
 
-    btn.addEventListener("click", () => {
+    themeBtn.addEventListener("click", () => {
       const current = root.getAttribute("data-theme");
       setTheme(current === "dark" ? "light" : "dark");
     });
+
+
+
+    // AJAX Form Submit (no reload)
+    const form = document.getElementById("leadForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      submitBtn.style.opacity = isLoading ? "0.85" : "1";
+      submitBtn.style.cursor = isLoading ? "not-allowed" : "pointer";
+      submitBtn.innerHTML = isLoading
+        ? 'Submitting… <span aria-hidden="true">⏳</span>'
+        : 'Submit <span aria-hidden="true">→</span>';
+    }
+
+    function resetCaptcha() {
+      // Turnstile exposes a global "turnstile" helper in many setups
+      // If available, reset it after submit attempts.
+      try {
+        if (window.turnstile && typeof window.turnstile.reset === "function") {
+          window.turnstile.reset();
+        }
+      } catch (_) { }
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        showToast({ type: "error", title: "Check details", message: "Please fill all required fields correctly." });
+        return;
+      }
+
+      // Name min length (extra safe, because some browsers are inconsistent)
+      const nameVal = (document.getElementById("name").value || "").trim();
+      if (nameVal.length < 3) {
+        showToast({ type: "error", title: "Invalid name", message: "Name must be at least 3 characters." });
+        document.getElementById("name").focus();
+        return;
+      }
+
+      // Phone validation (reliable across devices)
+      const phoneVal = (document.getElementById("phone").value || "").trim();
+      if (!isValidIndiaMobile(phoneVal)) {
+        showToast({
+          type: "error",
+          title: "Invalid phone number",
+          message: "Enter a valid 10-digit Indian mobile number (e.g., 9876543210 or +91 9876543210)."
+        });
+        document.getElementById("phone").focus();
+        return;
+      }
+
+      showToast({
+        type: "success",
+        title: "Request received!",
+        message: "Thanks — we’ll contact you shortly."
+      });
+      retrun;
+      // Honeypot check
+      const hp = form.querySelector('input[name="website"]');
+      if (hp && hp.value.trim() !== "") {
+        showToast({ type: "success", title: "Submitted", message: "Thanks! We will contact you soon." });
+        form.reset();
+        resetCaptcha();
+        return;
+      }
+
+      const endpoint = form.getAttribute("action") || "";
+      if (!endpoint || endpoint === "FORM_ENDPOINT") {
+        showToast({
+          type: "error",
+          title: "Form not configured",
+          message: "Replace FORM_ENDPOINT with your Formspree URL."
+        });
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const formData = new FormData(form);
+        formData.set("phone", normalizePhone(phoneVal));
+
+        // Enforce Turnstile token presence before sending
+        // Token field is cf-turnstile-response generated by the widget. [1](https://help.formspree.io/hc/en-us/articles/46614263949331-Protecting-your-Forms-with-Cloudflare-Turnstile)
+        const token = formData.get("cf-turnstile-response");
+        if (!token) {
+          showToast({
+            type: "error",
+            title: "Verification needed",
+            message: "Please complete the captcha verification."
+          });
+          setLoading(false);
+          return;
+        }
+
+        const res = await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          showToast({
+            type: "success",
+            title: "Request received!",
+            message: "Thanks — we’ll contact you shortly. (No spam)"
+          });
+          form.reset();
+          resetCaptcha();
+        } else {
+          let msg = "Something went wrong. Please try again or call us directly.";
+          try {
+            const data = await res.json();
+            if (data && data.errors && data.errors.length) {
+              msg = data.errors.map(e => e.message).join(" ");
+            }
+          } catch (_) { }
+          showToast({ type: "error", title: "Submission failed", message: msg });
+          resetCaptcha();
+        }
+      } catch (err) {
+        showToast({
+          type: "error",
+          title: "Network error",
+          message: "Please check your internet connection and try again."
+        });
+        resetCaptcha();
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    // helper
+
+    function normalizePhone(raw) {
+      // Remove spaces, dashes, parentheses
+      return raw.replace(/[^\d+]/g, "");
+    }
+
+    function isValidIndiaMobile(raw) {
+      const p = normalizePhone(raw);
+
+      // Convert 0091... or 91... or +91... to standard
+      let digits = p;
+      if (digits.startsWith("0091")) digits = "+91" + digits.slice(4);
+      if (digits.startsWith("91") && !digits.startsWith("+91")) digits = "+91" + digits.slice(2);
+
+      // Extract last 10 digits if it has +91
+      if (digits.startsWith("+91")) digits = digits.slice(3);
+
+      // Now must be 10 digits and start with 6-9
+      return /^[6-9]\d{9}$/.test(digits);
+    }
+
+
+    const toastEl = document.getElementById("toast");
+    let toastTimer = null;
+    function showToast({ type = "success", title = "Success", message = "", timeout = 4200 } = {}) {
+      clearTimeout(toastTimer);
+
+      toastEl.className = `toast ${type}`;
+      const icon = type === "success" ? "✅" : type === "error" ? "⚠️" : "ℹ️";
+
+      toastEl.innerHTML = `
+        <div class="toastIcon" aria-hidden="true">${icon}</div>
+        <div>
+          <p class="toastTitle">${title}</p>
+          <p class="toastMsg">${message}</p>
+        </div>
+        <button class="toastClose" type="button" aria-label="Close notification">✕</button>
+      `;
+
+      toastEl.classList.add("show");
+
+      toastEl.querySelector(".toastClose").addEventListener("click", () => {
+        toastEl.classList.remove("show");
+      }, { once: true });
+
+      toastTimer = setTimeout(() => {
+        toastEl.classList.remove("show");
+      }, timeout);
+    }
   </script>
 </body>
+
 </html>
