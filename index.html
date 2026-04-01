@@ -8,21 +8,27 @@
   <meta name="format-detection" content="telephone=no" />
 
   <!-- Primary SEO -->
-  <title>Sukrit Career Institute | Foundation (9–10), Boards (11–12), IIT‑JEE & MEDICAL Coaching in Panchkula</title>
+  <title>Sukrit Career Institute | Foundation, Boards, IIT-JEE & MEDICAL Coaching in Panchkula</title>
   <meta name="description"
-    content="Sukrit Career Institute, Sector 15 Panchkula (Haryana) – Coaching for Class 9–10 Foundation, Class 11–12 Boards, IIT‑JEE & MEDICAL. Concept clarity, regular tests, doubt sessions, and mentoring." />
+    content="Sukrit Career Institute, Sector 15 Panchkula (Haryana) - Coaching for Class 9-10 Foundation, Class 11-12 Boards, IIT-JEE and Medical. Concept clarity, regular tests, doubt sessions, and mentoring." />
   <link rel="canonical" href="https://sukritcareerinstitute.in/" />
   <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow,max-image-preview:large" />
+  <link rel="sitemap" type="application/xml" href="https://sukritcareerinstitute.in/sitemap.xml" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sukrit Career Institute | Coaching in Panchkula (Sector 15)" />
   <meta property="og:description"
-    content="Foundation (9–10), Boards (11–12), IIT‑JEE & MEDICAL coaching in Panchkula. Book a free counseling call." />
+    content="Foundation (9-10), Boards (11-12), IIT-JEE and MEDICAL coaching in Panchkula. Book a free counseling call." />
   <meta property="og:url" content="https://sukritcareerinstitute.in/" />
+  <meta property="og:site_name" content="Sukrit Career Institute" />
+  <meta property="og:locale" content="en_IN" />
   <!-- Optional after upload -->
   <!-- <meta property="og:image" content="https://sukritcareerinstitute.in/assets/og-cover.jpg" /> -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sukrit Career Institute | Coaching in Panchkula" />
+  <meta name="twitter:description" content="Foundation, Boards, IIT-JEE and MEDICAL coaching in Sector 15, Panchkula." />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -124,58 +130,7 @@
       opacity: 1;
       pointer-events: auto;
     }
-    @media (max-width: 900px) {
-      .links {
-        display: none !important;
-      }
-      .mobileMenuBtn {
-        display: inline-flex !important;
-        margin-right: 8px;
-        margin-left: 0;
-        order: 0;
-      }
-      .brand {
-        order: 1;
-        margin-right: auto;
-        margin-left: 0;
-        gap: 10px;
-      }
-      .navRight {
-        order: 2;
-        margin-left: auto;
-      }
-    }
-    @media (max-width: 520px) {
-      .nav {
-        padding: 8px 0;
-      }
-      .mobileMenuBtn {
-        margin-right: 6px;
-      }
-      .brandText span {
-        display: none;
-      }
-      .brandText strong {
-        white-space: normal;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        line-height: 1.1;
-        max-width: 14ch;
-        font-size: 15px;
-      }
-      .logoImg {
-        width: 54px;
-        height: 36px;
-        min-width: 36px;
-        min-height: 36px;
-        margin-right: 2px;
-      }
-      .brand {
-        gap: 7px;
-      }
-    }
+
     :root {
       --space-1: 6px;
       --space-2: 10px;
@@ -437,7 +392,7 @@
       font-size: 16px;
     }
 
-  .sukrit-brand .i-red {
+  .i-red {
   position: relative;
   color: inherit;
   font-style: normal;
@@ -445,26 +400,33 @@
   display: inline-block;
 
   }
-  .sukrit-brand .i-red::after {
+  .i-red::after {
     content: '';
     position: absolute;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
-    width: 0.19em;
-    height: 0.18em;
+    width: 0.22em;
+    height: 0.20em;
     border-radius: 50%;
     background: #fb1d1d;
     z-index: 2;
     margin: 79% 0;
     display: block;
   }
-  .i-red {
+  .nav-i-red::after {
+    margin: 76% 0;
+  }
+  .drawer-i-red::after {
+    margin: 79% 0;
+  }
+  .hero-i-red::after {
+    margin: 74% 0;
+  }
+
+  .lowercase {
     /* font-family: Arial, sans-serif; */
     text-transform: lowercase !important;
-  }
-  .sukrit-brand .i-red {
-    text-shadow: 0 -0.22em 0 #0b1220; /* background color to cover the default dot */
   }
     /* =========================
        HERO
@@ -855,9 +817,97 @@
       color: var(--muted);
     }
 
+    /* =========================
+       MEDIA QUERIES (Mobile-first to Desktop)
+       ========================= */
+
+    /* Micro screens (≤380px) */
+    @media (max-width: 380px) {
+      .navRight .cta {
+        display: none;
+      }
+    }
+
+    /* Small mobile (≤520px) */
+    @media (max-width: 520px) {
+      .nav {
+        padding: 8px 0;
+      }
+      .mobileMenuBtn {
+        margin-right: 6px;
+      }
+      .brandText span {
+        display: none;
+      }
+      .brandText strong {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.1;
+        max-width: 14ch;
+        font-size: 15px;
+      }
+      .logoImg {
+        width: 54px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        margin-left: -4px;
+      }
+      .brand {
+        gap: 4px;
+      }
+    }
+
+    /* Mobile/tablet (≤760px) - red dot responsive offsets */
+    @media (max-width: 760px) {
+      .nav-i-red::after {
+        margin: 79% 0;
+      }
+      .drawer-i-red::after {
+        margin: 81% 0;
+      }
+      .hero-i-red::after {
+        margin: 78% 0;
+      }
+    }
+
+    /* Larger mobile/tablet (≤900px) - navigation layout */
+    @media (max-width: 900px) {
+      .links {
+        display: none !important;
+      }
+      .mobileMenuBtn {
+        display: inline-flex !important;
+        margin-right: 8px;
+        margin-left: 0;
+        order: 0;
+      }
+      .brand {
+        order: 1;
+        margin-right: auto;
+        margin-left: 0;
+        gap: 10px;
+      }
+      .navRight {
+        order: 2;
+        margin-left: auto;
+      }
+    }
+
+    /* Desktop (≥760px) */
     @media (min-width: 760px) {
       .links {
         display: flex;
+      }
+
+      .mobileMenuBtn,
+      .sideNav,
+      .sideNavOverlay {
+        display: none !important;
       }
 
       .heroGrid {
@@ -879,27 +929,7 @@
       }
     }
 
-    @media (max-width: 520px) {
-      .brandText span {
-        display: none;
-      }
-
-      .brandText strong {
-        white-space: normal;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        line-height: 1.1;
-        max-width: 18ch;
-      }
-
-      .logoImg {
-        width: 68px;
-        height: 45px;
-      }
-    }
-
+    /* Accessibility: Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       * {
         scroll-behavior: auto !important;
@@ -915,9 +945,11 @@
     "@type":"EducationalOrganization",
     "name":"Sukrit Career Institute",
     "url":"https://sukritcareerinstitute.in/",
-    "description":"Coaching for Foundation (Class 9–10), Boards (Class 11–12), IIT-JEE and MEDICAL in Panchkula (Sector 15, Haryana).",
+    "description":"Coaching for Foundation (Class 9-10), Boards (Class 11-12), IIT-JEE and MEDICAL in Panchkula (Sector 15, Haryana).",
     "telephone":[ "+91-7340701309", "+91-9041452013" ],
     "email":"info@sukritcareerinstitute.in",
+    "areaServed":"Panchkula",
+    "hasMap":"https://share.google/Yhalayz8Rd7DoVfpd",
     "address":{
       "@type":"PostalAddress",
       "streetAddress":"SCF-8, First-Floor, Sector 15",
@@ -949,7 +981,7 @@
         <a href="#top" class="brand" aria-label="Sukrit Career Institute">
           <img src="/assets/logo.png" alt="Sukrit Career Institute logo" class="logoImg" />
           <div class="brandText">
-            <strong><span>S<span class="lowercase">u</span>KR<span class="i-red lowercase">i</span>t Career Institute</span></strong>
+            <strong><span>S<span class="lowercase">u</span>KR<span class="i-red nav-i-red lowercase">i</span>t Career Institute</span></strong>
           </div>
         </a>
         <div class="links" aria-label="Sections">
@@ -970,7 +1002,7 @@
         <a href="#top" class="brand" aria-label="Sukrit Career Institute" tabindex="0">
           <img src="/assets/logo.png" alt="Sukrit Career Institute logo" class="logoImg" />
           <div class="brandText">
-            <strong><span class="sukrit-brand">Sukr<span class="i-red">i</span>t</span> Career Institute</strong>
+            <strong><span class="sukrit-brand">Sukr<span class="i-red drawer-i-red">i</span>t</span> Career Institute</strong>
             <span>Career Institute</span>
           </div>
         </a>
@@ -999,7 +1031,7 @@
               Sector 15, Panchkula • Foundation • Boards • IIT‑JEE • MEDICAL
             </div>
 
-            <h1><span class="sukrit-brand">SuKR<span class="i-red">i</span>T</span> Career Institute</h1>
+            <h1><span class="sukrit-brand">SuKR<span class="i-red hero-i-red">i</span>T</span> Career Institute</h1>
             <p class="heroTagline">
               Build strong fundamentals.<br>
               Excel in Boards.<br>
@@ -1342,12 +1374,6 @@
         return;
       }
 
-      showToast({
-        type: "success",
-        title: "Request received!",
-        message: "Thanks — we’ll contact you shortly."
-      });
-      retrun;
       // Honeypot check
       const hp = form.querySelector('input[name="website"]');
       if (hp && hp.value.trim() !== "") {
