@@ -93,6 +93,11 @@
       padding: 10px 8px;
       transition: background .13s, color .13s;
     }
+    .sideNavThemeBtn {
+      width: 100%;
+      margin-top: 4px;
+      display: none;
+    }
     .sideNavLinks a:hover {
       background: var(--panel2);
       color: var(--brand);
@@ -824,7 +829,9 @@
     /* Micro screens (≤380px) */
     @media (max-width: 380px) {
       .navRight .cta {
-       /* display: none; */
+        display: inline-flex !important;
+        padding: 8px 9px;
+        font-size: 11px;
       }
     }
 
@@ -835,6 +842,15 @@
       }
       .mobileMenuBtn {
         margin-right: 6px;
+      }
+      .navRight {
+        gap: 6px;
+      }
+      .navRight .cta {
+        display: inline-flex !important;
+        padding: 8px 10px;
+        font-size: 12px;
+        border-radius: 12px;
       }
       .brandText span {
         display: none;
@@ -855,7 +871,7 @@
         height: 36px;
         min-width: 36px;
         min-height: 36px;
-        margin-left: -4px;
+        /* margin-left: -4px; */
       }
       .brand {
         gap: 4px;
@@ -879,6 +895,12 @@
     @media (max-width: 900px) {
       .links {
         display: none !important;
+      }
+      #themeToggle {
+        display: none;
+      }
+      .sideNavThemeBtn {
+        display: inline-flex;
       }
       .mobileMenuBtn {
         display: inline-flex !important;
@@ -1014,6 +1036,7 @@
         <a href="#courses">Courses</a>
         <a href="#why">Why Us</a>
         <a href="#contact">Contact</a>
+        <button class="btn sideNavThemeBtn" id="themeToggleMobile" type="button" aria-label="Toggle appearance" title="Toggle light/dark appearance">🌙 Appearance</button>
         <a class="cta" href="#contact" style="margin-top:18px;">Book Free Counseling →</a>
       </nav>
     </div>
@@ -1298,13 +1321,23 @@
     // Theme toggle (dark/light) with persistence
     const root = document.documentElement;
     const themeBtn = document.getElementById("themeToggle");
+    const themeBtnMobile = document.getElementById("themeToggleMobile");
+
+    function updateThemeButton(button, mode) {
+      if (!button) return;
+      button.textContent = (mode === "dark") ? "🌙" : "☀️";
+      if (button.id === "themeToggleMobile") {
+        button.textContent += " Appearance";
+      }
+      button.setAttribute("aria-label", mode === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      button.title = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    }
 
     function setTheme(mode) {
       root.setAttribute("data-theme", mode);
       localStorage.setItem("theme", mode);
-      themeBtn.textContent = (mode === "dark") ? "🌙" : "☀️";
-      themeBtn.setAttribute("aria-label", mode === "dark" ? "Switch to light theme" : "Switch to dark theme");
-      themeBtn.title = mode === "dark" ? "Switch to light theme" : "Switch to dark theme";
+      updateThemeButton(themeBtn, mode);
+      updateThemeButton(themeBtnMobile, mode);
     }
 
     const saved = localStorage.getItem("theme");
@@ -1315,10 +1348,19 @@
       setTheme(prefersDark ? "dark" : "light");
     }
 
-    themeBtn.addEventListener("click", () => {
-      const current = root.getAttribute("data-theme");
-      setTheme(current === "dark" ? "light" : "dark");
-    });
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme");
+        setTheme(current === "dark" ? "light" : "dark");
+      });
+    }
+
+    if (themeBtnMobile) {
+      themeBtnMobile.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme");
+        setTheme(current === "dark" ? "light" : "dark");
+      });
+    }
 
 
 
